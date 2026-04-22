@@ -3,9 +3,11 @@ interface ButtonProps {
   label: string; 
   variant?: 'primary' | 'outline'; 
   className?: string; 
+  type?: "button" | "submit"; 
+  isLoading?: boolean; 
 } 
  
-export const Button = ({ label, variant = 'primary', className }: 
+export const Button = ({ label, variant = 'primary', className, type = 'button', isLoading = false }: 
 ButtonProps) => { 
   const baseStyle = "px-6 py-3 rounded-full font-bold transition-all duration-300"; 
   const variants = { 
@@ -14,9 +16,12 @@ ButtonProps) => {
   }; 
  
   return ( 
-    <button className={`${baseStyle} ${variants[variant]} 
-${className}`}> 
-      {label} 
+    <button 
+    type={type} 
+    disabled={isLoading} 
+    className={`${baseStyle} ${variants[variant]} 
+    ${className}`}> 
+    {isLoading ? "Loading..." : label} 
     </button> 
   ); 
 }; 

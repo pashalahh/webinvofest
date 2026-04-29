@@ -1,17 +1,16 @@
 import { useForm } from "react-hook-form"; 
 import { InputText } from "../component/ui/InputText";
-import { InputPassword } from "../component/ui/InputPassword";
 import { Textarea } from "../component/ui/TextArea"; 
 import { Select } from "../component/ui/Select"; 
 import Button from "../component/ui/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {z} from "zod";
+
  
 
 type FormData ={
     nama: string;
     email: string;
-    password: string;
     event: string;
     bio: string;
 }
@@ -19,7 +18,6 @@ type FormData ={
 const schema = z.object({
     nama: z.string().min(1, "Nama harus diisi"),
     email: z.string().min(1, "Email harus diisi"),
-    password: z.string().min(8, "Password minimal 8 karakter"),
     event: z.string().min(1, "Pilih salah satu event"),
     bio: z.string().min(1,"Biodata harus diisi"),
 })
@@ -39,7 +37,7 @@ export default function RegisterForm() {
   };
  
   return (
-    <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border border-pink-800">
+    <div className="w-full bg-white p-8 rounded-2xl shadow-xl border border-pink-800">
       <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Registrasi Event</h2>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4"> 
@@ -57,13 +55,6 @@ export default function RegisterForm() {
           register={register} 
           error={errors.email?.message} 
         /> 
-
-        <InputPassword 
-          label="Password"
-          nama="password"
-          register={register}
-          error={errors.password?.message}
-        />
 
         <Select 
           label="Pilih Event" 
@@ -86,7 +77,8 @@ export default function RegisterForm() {
         /> 
   
   
-        <Button  label="Daftar" variant="primary" type="submit" className="w-full mt-2" /> 
+          <Button  label="Daftar" variant="primary" className="w-full mt-2" /> 
+
       </form> 
     </div>
   ); 

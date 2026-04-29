@@ -1,4 +1,3 @@
-import { Button } from "./Button";
 
 interface SpeakerProps { 
   name: string; 
@@ -8,18 +7,23 @@ interface SpeakerProps {
  
 export const SpeakerCard = ({ name, role, imageUrl }: SpeakerProps) => { 
   return ( 
-    <div className="bg-white p-6 rounded-2xl shadow-md text-center 
-border border-gray-100 hover:shadow-xl transition-shadow"> 
-      <img  
-        src={imageUrl}  
-        alt={name}  
-        className="w-32 h-32 rounded-full mx-auto mb-4 object-cover 
-border-4 border-blue-50" 
-      /> 
-      <h3 className="text-xl font-bold text-pink-800">{name}</h3> 
-      <p className="text-black font-medium text-sm mb-4">{role}</p> 
-      <Button label="Lihat Profil" variant="outline" className="text-xs py-2" /> 
-    </div> 
+     <div className="cursor-pointer flex flex-col items-center gap-4 group">
+      <div className="relative h-1/3 z-1">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="h-64 w-64 rounded-full border-10 border-pink-800 mx-auto group-hover:scale-105 transition-transform duration-300 object-cover"
+        />
+      </div>
+      <div className="cursor-pointer flex flex-col items-center h-2/3 border-4 border-pink-800 w-full p-4 rounded-lg relative py-10 shadow-xl shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/40 transition-all duration-300">
+        //card overlay
+        <div className="absolute bottom-0 px-4 py-6 rounded-lg w-full h-full flex flex-col items-center gap-2 group-hover:bg-pink-200 backdrop-blur-sm transition-all duration-300"></div>
+        <div className="absolute left-0 right-0 bottom-0 items-center justify-center p-4 flex flex-col gap-2">
+          <h3 className="text-2xl text-pink-800 font-semibold">{name}</h3>
+          <p className="text-sm text-gray-600 text-center">{role}</p>
+        </div>
+      </div>
+    </div>
   ); 
 }; 
 

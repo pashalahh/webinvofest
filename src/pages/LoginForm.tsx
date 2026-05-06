@@ -4,7 +4,8 @@ import { InputPassword } from "../component/ui/InputPassword";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {z} from "zod";
 import Button from "../component/ui/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthStore } from "../store/UseAuthStore";
 
 
 type FormData ={
@@ -18,12 +19,25 @@ const schema = z.object({
 })
 
 export default function LoginForm() {
+    const navigate = useNavigate();
+
+    const login = useAuthStore((state) => state.login);
+
     const {register, handleSubmit, formState: {errors}} = useForm<FormData>({
         resolver: zodResolver(schema),
     });
 
     const onsubmit = (data: FormData) => {
         console.log(data);
+        if(data.email == "admin@gmail.com" && data.password == "admin1234"){
+            alert("Login berhasil");
+            login(data.email); // Memanggil fungsi login dari store
+
+            // Redirect ke halaman dashboard
+            navigate("/dashboard");
+        } else {
+            alert("Email atau password salah");
+        }
     }
 
     return (
@@ -52,7 +66,6 @@ export default function LoginForm() {
                     Belum punya akun? <Link to="/register" className="text-pink-800">Daftar disini</Link>
                 </div>
 
-                <div><button className="bg-pink-800 hover:bg-pink-600">oyy</button></div>
             </form>
         </div>
     );

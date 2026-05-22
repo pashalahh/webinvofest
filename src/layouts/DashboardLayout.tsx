@@ -36,13 +36,18 @@ export default function DashboardLayout(){
                             </Link>
                         </li>
                         <li>
+                            <Link to="/dashboard/event" className="p-4 bg-pink-700 text-white rounded block text-center hover:bg-pink-400 cursor-pointer ">
+                                Event
+                            </Link>
+                        </li>
+                        <li>
                             <Link to="/dashboard/pembicara" className="p-4 bg-pink-700 text-white rounded block text-center hover:bg-pink-400 cursor-pointer ">
                                 Pembicara
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/event" className="p-4 bg-pink-700 text-white rounded block text-center hover:bg-pink-400 cursor-pointer ">
-                                Event
+                            <Link to="/dashboard/biodata" className="p-4 bg-pink-700 text-white rounded block text-center hover:bg-pink-400 cursor-pointer ">
+                                Biodata
                             </Link>
                         </li>
                     </ul>

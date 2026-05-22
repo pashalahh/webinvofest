@@ -14,7 +14,7 @@ export const InputText: React.FC<InputTextProps> = ({label, nama, error, registe
                     {...register(nama)}
                     placeholder={label}
                     className="border p-2" />
-                    {error && <p className="text-red-500 text-5m">{error}</p>}
+                    {error && <p className="text-red-500 text-sm">{error}</p>}
                 </div>
     );
 };

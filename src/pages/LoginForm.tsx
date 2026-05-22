@@ -14,8 +14,8 @@ type FormData ={
 }
 
 const schema = z.object({
-    email: z.string().min(1, "Email harus diisi"),
-    password: z.string().min(8, "Password minimal 8 karakter")
+    email: z.string().min(1, "EMAIL : 24090070"),
+    password: z.string().min(8, "Password : 24090070"),
 })
 
 export default function LoginForm() {
@@ -29,7 +29,7 @@ export default function LoginForm() {
 
     const onsubmit = (data: FormData) => {
         console.log(data);
-        if(data.email == "admin@gmail.com" && data.password == "admin1234"){
+        if(data.email == "24090070" && data.password == "24090070"){
             alert("Login berhasil");
             login(data.email); // Memanggil fungsi login dari store
 

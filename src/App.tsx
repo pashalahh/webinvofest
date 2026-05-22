@@ -18,6 +18,7 @@ import EventIndex from "./pages/dashboard/event/EventIndex";
 import CategoryCreate from "./pages/dashboard/category/CategoryCreate";
 import EventCreate from "./pages/dashboard/event/EventCreate";
 import PembicaraCreate from "./pages/dashboard/pembicara/PembicaraCreate";
+import BiodataIndex from "./pages/dashboard/biodata/BiodataIndex";
 
 
 function App() {
@@ -47,11 +48,13 @@ return (
             <Route path="/dashboard/category" element={<CategoryIndex />} />
             <Route path="/dashboard/category/create" element={<CategoryCreate />} />
 
+            <Route path="/dashboard/event" element={<EventIndex />} />
+            <Route path="/dashboard/event/create" element={<EventCreate />} />
+
             <Route path="/dashboard/pembicara" element={<PembicaraIndex />} />
             <Route path="/dashboard/pembicara/create" element={<PembicaraCreate />} />
 
-            <Route path="/dashboard/event" element={<EventIndex />} />
-            <Route path="/dashboard/event/create" element={<EventCreate />} />
+            <Route path="/dashboard/biodata" element={<BiodataIndex />} />
           </Route>
         </Route>
 
